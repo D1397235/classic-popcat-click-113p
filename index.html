@@ -52,5 +52,30 @@
         <img class="title" src="imgs/popcat.svg" alt="POPCAT">
         <div class="cat-img" id="p">0</div>
     </div>
+
+    <script>
+        // 取得顯示數字的元素
+        const catImg = document.getElementById('p');
+        const opImg = document.getElementById('op');
+
+        // 初始化數字
+        let count = 0;
+
+        // 監聽點擊事件
+        catImg.addEventListener('click', function() {
+            // 每次點擊時，數字加 1
+            count++;
+
+            // 更新顯示的數字
+            catImg.textContent = count;
+
+            // 切換圖片 p -> op -> p
+            catImg.style.backgroundImage = 'url("imgs/op.png")'; // 切換到op圖片
+            setTimeout(function() {
+                catImg.style.backgroundImage = 'url("imgs/p.png")'; // 100毫秒後切換回p圖片
+            }, 100); // 等待 100 毫秒
+        });
+    </script>
+
 </body>
 </html>
